@@ -83,8 +83,8 @@ void PWM3_Initialize(void)
      //PWM3DCH 0; 
     PWM3DCH = 0x00;
 
-     //PWM3DCL 210; 
-    PWM3DCL = 0xD2;
+     //PWM3DCL 139; 
+    PWM3DCL = 0x8B;
 
      //PWM3PRH 1; 
     PWM3PRH = 0x01;
