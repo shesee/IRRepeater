@@ -42,6 +42,10 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+//#include "mcc_generated_files/pwm3.h"
+#include "Staticval.h"
+#include "IRTrigger.h"
+#include "TimerTrigger.h"
 
 /*
                          Main application
@@ -53,12 +57,14 @@ void main(void)
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
-
+    InitializeTimerTrigger();
+    InitializeIRTrigger();
+    
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -66,9 +72,13 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
-    while (1)
-    {
+    while (1){
         // Add your application code
+        if(!(sleepcnt > 0)){
+           StopIR();
+           SLEEP();
+           NOP();
+        }
     }
 }
 /**
