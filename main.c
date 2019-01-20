@@ -66,6 +66,8 @@ void main(void)
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
 
+    //WDT の有効化
+    WDTCONbits.SWDTEN = 1;
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
 
@@ -74,10 +76,12 @@ void main(void)
 
     while (1){
         // Add your application code
+        //スリープカウントが0ならスリープする。
         if(!(sleepcnt > 0)){
-           StopIR();
-           SLEEP();
-           NOP();
+           StopIR();//IRを止める
+           OUT_LED_SetLow();//Debug
+           SLEEP();//省電力のためにスリープ
+           NOP();//PICは起きたときについうっかり次の命令を実行してしまうので
         }
     }
 }

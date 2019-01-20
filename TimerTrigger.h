@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-
+// @brief タイマー0ハンドラの初期化
 extern void InitializeTimerTrigger(void);
 
 #ifdef	__cplusplus

@@ -18,7 +18,7 @@ extern "C" {
 
     
 #define MAX_SLEEPCNT 5
-    
+//! スリープカウント　最期の割り込みから50ms後にスリープする。    
 extern volatile uint8_t sleepcnt;
 
 
