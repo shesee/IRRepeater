@@ -79,7 +79,7 @@ void main(void)
         //スリープカウントが0ならスリープする。
         if(!(sleepcnt > 0)){
            StopIR();//IRを止める
-           OUT_LED_SetLow();//Debug
+           //OUT_LED_SetLow();//Debug
            SLEEP();//省電力のためにスリープ
            NOP();//PICは起きたときについうっかり次の命令を実行してしまうので
         }
